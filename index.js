@@ -28,7 +28,6 @@ const userRoutes = require("./routes/user");
 app.use(userRoutes);
 const offerRoutes = require("./routes/offer");
 app.use(offerRoutes);
-
 const paymentRoutes = require("./routes/payment");
 app.use(paymentRoutes);
 
