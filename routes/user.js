@@ -26,11 +26,11 @@ router.post("/user/signup", async (req, res) => {
         const hash = SHA256(password + salt).toString(encBase64);
 
         const newUser = new User({
-          email: email,
-          account: { username: username, phone: phone },
-          token: token,
-          hash: hash,
-          salt: salt,
+          email,
+          account: { username, phone },
+          token,
+          hash,
+          salt,
         });
 
         await newUser.save();

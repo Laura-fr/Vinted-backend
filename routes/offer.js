@@ -32,7 +32,7 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
       ],
       owner: req.user,
     });
-    // console.log(newOffer);
+
     // envoyer l'image sur cloudinary
 
     const result = await cloudinary.uploader.upload(req.files.picture.path, {
@@ -43,7 +43,6 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
     newOffer.product_image = result;
 
     await newOffer.save();
-    // console.log(req.fields);
 
     res.json(newOffer);
   } catch (error) {
@@ -53,7 +52,7 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
 
 router.get("/offers", async (req, res) => {
   try {
-    // création d'un objet dans lequel on va sotcker nos différents filtres
+    // création d'un objet dans lequel on va stocker nos différents filtres
     let filters = {};
 
     if (req.query.title) {
